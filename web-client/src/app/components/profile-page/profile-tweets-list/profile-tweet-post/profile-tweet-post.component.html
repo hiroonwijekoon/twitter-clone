@@ -1,0 +1,57 @@
+<div class="post">
+  <div class="post__avatar">
+    <img [src]="user.picture" alt="" />
+  </div>
+  <form [formGroup]="tweetForm">
+    <div class="post__body">
+      <div class="post__header">
+        <div class="post__headerText">
+          <h3>
+            {{ user.name }}
+            <span class="post__headerSpecial"
+              ><span class="material-icons post__badge"> verified </span>@{{ user.given_name.toLowerCase()
+              }}{{ user.family_name.toLowerCase() }}
+            </span>
+            <span class="created_date_time">{{ created }}</span>
+          </h3>
+        </div>
+        <div class="post__headerDescription">
+          <p class="post_text_content" *ngIf="!editMode">{{ tweet.content }}</p>
+          <textarea class="post_text_content" formControlName="content" *ngIf="editMode">{{ tweet.content }}</textarea>
+        </div>
+      </div>
+      <div class="" *ngIf="tweet.image != null && !imageChanged">
+        <img [src]="tweet.image" class="image_preview" />
+      </div>
+      <div class="d-flex align-items-center justify-content-center" *ngIf="filePath && filePath !== ''">
+        <img [src]="filePath" class="image_preview" />
+      </div>
+      <div class="container post__footer" *ngIf="!editMode">
+        <span class="action__icon material-icons"> repeat </span>
+        <span class="action__icon material-icons"> favorite_border </span>
+        <span class="action__icon material-icons" (click)="editModeToggle()"> edit </span>
+      </div>
+      <div class="container post__footer" *ngIf="editMode">
+        <span class="action__icon material-icons" (click)="deleteTweet()"> delete </span>
+
+        <div class="tweetbox_file_upload">
+          <input
+            class="file_upload_input form-control"
+            formControlName="fileupload"
+            id="fileupload"
+            type="file"
+            accept="image/*"
+            (change)="imagePreview($event)"
+            hidden
+          />
+          <label for="fileupload">
+            <span class="action__icon material-icons"> perm_media </span>
+          </label>
+        </div>
+
+        <span class="action__icon material-icons" (click)="editModeToggle()"> cancel </span>
+        <span class="action__icon material-icons" (click)="saveTweet()"> check </span>
+      </div>
+    </div>
+  </form>
+</div>

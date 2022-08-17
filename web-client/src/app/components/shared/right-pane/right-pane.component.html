@@ -1,0 +1,41 @@
+<div class="container right__bar">
+  <div class="widgets mr-2">
+    <div class="widgets__input">
+      <span class="material-icons widgets__searchIcon"> search </span>
+      <input type="text" placeholder="Search Twitter" />
+    </div>
+  </div>
+
+  <br />
+
+  <div class="trends-for-you">
+    <div class="trends-for-you__block">
+      <div class="trends-for-you__heading">Trends for you</div>
+    </div>
+    <div class="trends-for-you__block">
+      <div class="trends-for-you__meta-information">Trending in Germany</div>
+      <div class="trends-for-you__trend-name">#hashTag1</div>
+      <div class="trends-for-you__meta-information">2,800 Tweets</div>
+    </div>
+    <div class="trends-for-you__block">
+      <div class="trends-for-you__meta-information">Trending in Japan</div>
+      <div class="trends-for-you__trend-name">#hashTag2</div>
+      <div class="trends-for-you__meta-information">3,200 Tweets</div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="who-to-follow">
+    <div class="who-to-follow__block">
+      <div class="who-to-follow__heading">Who to follow</div>
+    </div>
+    <div *ngFor="let user of usersList | slice: 0:6">
+      <app-right-pane-user-item
+        [user]="user"
+        [isFollowing]="followingList.includes(user.id)"
+        *ngIf="!followingList.includes(user.id) && user.id != currentUser.id"
+      ></app-right-pane-user-item>
+    </div>
+  </div>
+</div>

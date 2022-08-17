@@ -1,0 +1,67 @@
+.tweetbox__input img {
+  border-radius: 50%;
+  height: 40px;
+}
+
+.tweetBox {
+  padding-bottom: 10px;
+  border: 1px solid #e6ecf0;
+  padding-right: 10px;
+}
+
+.tweetBox form {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweetbox__input {
+  display: flex;
+  padding: 20px;
+}
+
+.tweetbox__input input {
+  flex: 1;
+  margin-left: 20px;
+  border: none;
+  outline: none;
+}
+
+.tweetBox__tweetButton {
+  background-color: #50b7f5;
+  border: none;
+  color: white;
+  font-weight: 900;
+  float: right;
+
+  border-radius: 30px;
+  width: 80px;
+  height: 40px;
+  margin-left: auto;
+}
+
+/* File upload input */
+.tweetbox_file_upload {
+  margin-left: 70px;
+  margin-top: 5px;
+  width: 200px;
+}
+
+.image_upload_icon {
+  font-size: 25px;
+  cursor: pointer;
+  color: #50b7f5;
+  border: 1px solid #50b7f5;
+  border-radius: 5px;
+}
+.image_delete_icon {
+  font-size: 25px;
+  cursor: pointer;
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+.image_preview {
+  width: 300px;
+  margin: auto;
+  margin-bottom: 10px;
+}

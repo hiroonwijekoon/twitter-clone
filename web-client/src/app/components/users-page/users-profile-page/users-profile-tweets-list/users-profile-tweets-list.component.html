@@ -1,0 +1,5 @@
+<div class="tweets-list">
+  <div class="tweet-post" *ngFor="let tweet of tweetsList">
+    <app-users-profile-tweet-post [tweet]="tweet" [user]="user"></app-users-profile-tweet-post>
+  </div>
+</div>

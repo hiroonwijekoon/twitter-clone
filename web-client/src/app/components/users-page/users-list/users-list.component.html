@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div class="users_search mr-2">
+    <div class="users_search_input">
+      <span class="material-icons users_search_icon"> search </span>
+      <input type="text" placeholder="Search User" />
+    </div>
+  </div>
+  <div class="top_bar">
+    <div class="people_tab">
+      <h5>People</h5>
+    </div>
+  </div>
+  <div class="user-item" *ngFor="let user of usersList">
+    <app-user-item
+      [user]="user"
+      [isFollowing]="followingList.includes(user.id)"
+      *ngIf="user.id != currentUser.id"
+    ></app-user-item>
+  </div>
+</div>

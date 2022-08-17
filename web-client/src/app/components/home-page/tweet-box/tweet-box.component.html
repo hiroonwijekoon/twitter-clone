@@ -1,0 +1,42 @@
+<div class="tweetBox">
+  <form (ngSubmit)="sendTweet()" [formGroup]="tweetForm">
+    <div class="tweetbox__input">
+      <img [src]="user.picture" alt="user_image" />
+      <input type="text" placeholder="What's happening?" formControlName="content" />
+    </div>
+    <div class="d-flex align-items-center justify-content-center" *ngIf="filePath && filePath !== ''">
+      <img [src]="filePath" [alt]="tweetForm.value.name" class="image_preview" />
+    </div>
+    <div class="button_bar">
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="tweetbox_file_upload">
+            <input
+              class="file_upload_input form-control"
+              formControlName="fileupload"
+              id="fileupload"
+              type="file"
+              accept="image/*"
+              (change)="imagePreview($event)"
+              hidden
+            />
+            <label for="fileupload">
+              <span class="material-icons image_upload_icon" *ngIf="filePath == ''"> image </span>
+            </label>
+            <span class="material-icons image_delete_icon" *ngIf="filePath !== ''" (click)="removeImage()">
+              delete
+            </span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <button class="tweetBox__tweetButton">Tweet</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- Display Error Messages -->
+<div class="alert alert-danger mt-3" role="alert" *ngIf="errorMessage != null">
+  <h6 class="alert-heading">Oops! Failed to send the tweet!</h6>
+  <p>Error: {{ errorMessage }}</p>
+</div>

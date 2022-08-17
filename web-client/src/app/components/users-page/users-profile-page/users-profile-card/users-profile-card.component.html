@@ -1,0 +1,35 @@
+<div class="wrapper pb-3">
+  <div class="top_bar">
+    <a routerLink="/users"><span class="material-icons arrow_back"> arrow_back </span></a>
+  </div>
+  <div class="cover_image"></div>
+  <div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="profile_image_container">
+          <img [src]="user.picture" class="profile_img" />
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="profile_data">
+          <h6 class="profile_name">{{ user.name }}</h6>
+          <h6 class="username">@{{ user.given_name.toLowerCase() }}{{ user.family_name.toLowerCase() }}</h6>
+        </div>
+      </div>
+    </div>
+    <div class="profile_stats d-flex justify-content-between mt-3">
+      <div class="stats_details">
+        <span class="d-block stats_label">Tweets</span>
+        <span class="stats_number"> {{ numOfTweets }} </span>
+      </div>
+      <div class="stats_details">
+        <span class="d-block stats_label">Following</span>
+        <span class="stats_number"> {{ numOfFollowing }} </span>
+      </div>
+      <div class="stats_details">
+        <span class="d-block stats_label">Followers</span>
+        <span class="stats_number"> {{ numOfFollowers }} </span>
+      </div>
+    </div>
+  </div>
+</div>

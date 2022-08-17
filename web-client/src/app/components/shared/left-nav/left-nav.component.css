@@ -1,0 +1,47 @@
+.twitter__brand {
+  font-size: 25px;
+}
+.sidebar {
+  position: fixed;
+  max-width: fit-content;
+}
+
+.sidebar__option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar__option .material-icons,
+.fa-twitter {
+  padding: 20px;
+}
+
+.sidebar__option h2 {
+  font-weight: 800;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.sidebar__option:hover {
+  background-color: #e6ecf0;
+  border-radius: 30px;
+  color: #50b7f5;
+  transition: color 100ms ease-out;
+}
+
+.sidebar__option.active {
+  color: #50b7f5;
+}
+
+.user__card {
+  background-color: #e6ecf0;
+  border-radius: 30px;
+  padding: 10px;
+  width: 280px;
+}
+
+.username {
+  color: rgb(50, 50, 50);
+  font-size: 0.65em;
+}

@@ -1,0 +1,30 @@
+<div class="post">
+  <div class="post__avatar">
+    <img [src]="user.picture" alt="" />
+  </div>
+
+  <div class="post__body">
+    <div class="post__header">
+      <div class="post__headerText">
+        <h3>
+          {{ user.name }}
+          <span class="post__headerSpecial"
+            ><span class="material-icons post__badge"> verified </span>@{{ user.given_name }}
+          </span>
+          <span class="created_date_time">{{ created }}</span>
+        </h3>
+      </div>
+      <div class="post__headerDescription">
+        <p class="post_text_content">{{ tweet.content }}</p>
+      </div>
+    </div>
+    <div class="" *ngIf="tweet.image != null">
+      <img [src]="tweet.image" class="image_preview" />
+    </div>
+    <div class="container post__footer">
+      <span class="action__icon material-icons"> repeat </span>
+      <span class="action__icon material-icons"> favorite_border </span>
+      <span class="action__icon material-icons"> share </span>
+    </div>
+  </div>
+</div>

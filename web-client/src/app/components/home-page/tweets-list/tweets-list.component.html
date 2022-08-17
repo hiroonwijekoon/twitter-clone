@@ -1,0 +1,9 @@
+<div class="tweets-list">
+  <div class="tweet-post" *ngFor="let tweet of tweetsList">
+    <app-tweet-post
+      [tweet]="tweet"
+      *ngIf="followingList.includes(tweet.user_id) && this.router.url == '/home'"
+    ></app-tweet-post>
+    <app-tweet-post [tweet]="tweet" *ngIf="this.router.url == '/global'"></app-tweet-post>
+  </div>
+</div>

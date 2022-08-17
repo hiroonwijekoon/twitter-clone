@@ -1,0 +1,63 @@
+.wrapper {
+  background: #fff none repeat scroll 0 0;
+  border: 1px solid #e1e8ed;
+  height: auto;
+  width: 100%;
+}
+.arrow_back {
+  margin: 5px 10px;
+  font-size: 30px;
+}
+.cover_image {
+  background: url('https://images7.alphacoders.com/109/1093609.jpg');
+  background-position: 0 50%;
+  background-size: 100% auto;
+  height: 100px;
+  width: 100%;
+}
+.profile_image_container {
+  margin: -30px 5px 0px 8px;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+.profile_img {
+  border-radius: 50%;
+  height: 110px;
+  width: 110px;
+}
+.profile_data {
+  margin-top: 15px;
+}
+.profile_name {
+  font-size: 20px;
+}
+.username {
+  margin-top: 5px;
+  color: rgb(100, 100, 100);
+}
+
+.profile_stats {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.stats_details {
+  text-align: center;
+  display: block;
+  font-weight: 500;
+  transition: color 0.15s ease-in-out 0s;
+}
+.stats_label {
+  color: rgb(40, 40, 40);
+  font-size: 17px;
+}
+
+.stats_number {
+  color: #50b7f5;
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

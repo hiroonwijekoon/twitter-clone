@@ -1,0 +1,15 @@
+<div class="user_card">
+  <div class="user_card_block">
+    <img class="user_card_image" [src]="user.picture" />
+    <div class="user_card_content">
+      <a routerLink="/users/{{ user.id }}"
+        ><div>
+          <div class="user_card_name">{{ user.name }}</div>
+          <div class="user_card_username">@{{ user.given_name.toLowerCase() }}{{ user.family_name.toLowerCase() }}</div>
+        </div></a
+      >
+      <button *ngIf="!isFollowing" class="user_card_follow_button btn" (click)="followUser()">Follow</button>
+      <button *ngIf="isFollowing" class="user_card_unfollow_button btn" (click)="followUser()">Unfollow</button>
+    </div>
+  </div>
+</div>
