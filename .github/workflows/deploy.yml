@@ -1,0 +1,47 @@
+name: Build and Push docker image to AWS ECR
+on: push
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  REPO_URL: 741641693274.dkr.ecr.ap-northeast-1.amazonaws.com/intern-hiroon-tclone-web-app
+
+jobs:
+  build-and-push:
+    name: Build and Push docker image to ECR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: ap-northeast-1
+          role-to-assume: arn:aws:iam::741641693274:role/intern-devops-terraform
+          role-session-name: switch-role-intern
+
+      - name: Log in to ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, Tag and Push image to ECR
+        working-directory: web-server
+        run: |
+          docker build -t $REPO_URL:$GITHUB_SHA .
+          docker push $REPO_URL:$GITHUB_SHA
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.2.4
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: tf/dev
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve -var imageTagName=$GITHUB_SHA
+        working-directory: tf/dev
